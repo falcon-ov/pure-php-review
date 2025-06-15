@@ -7,4 +7,4 @@ $db = new Database();
 $taskModel = new Task($db->getConnection());
 $controller = new TaskController($taskModel);
 
-echo "<br> ROUTE";
+require_once __DIR__ . '/../public/views/layout.php';
