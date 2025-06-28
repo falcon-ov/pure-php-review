@@ -1,0 +1,20 @@
+{
+    "name": "user/pure-php-review",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\": "database/",
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "falcon-ov",
+            "email": "vinifon4he@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
