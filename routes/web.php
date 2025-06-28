@@ -1,10 +1,9 @@
 <?php
-require_once __DIR__ . '/../database/database.php';
-require_once __DIR__ . '/../app/models/Task.php';
-require_once __DIR__ . '/../app/controllers/TaskController.php';
 
-$db = new Database();
-$taskModel = new Task($db->getConnection());
-$controller = new TaskController($taskModel);
+use Core\Router;
 
-require_once __DIR__ . '/../public/views/layout.php';
+Router::get('/', 'pages/home.php');
+Router::get('/about', 'pages/about.php');
+Router::get('/contact', function () {
+    echo "<h1>Контакты</h1><p>Email: contact@example.com</p>";
+});

@@ -1,7 +1,11 @@
 <?php
+
+namespace Database;
+use \PDO;
+Use \PDOException;
 class Database
 {
-    public function getConnection()
+    public static function getConnection()
     {
         try {
             $pdo = new PDO("sqlite:../database.db");
