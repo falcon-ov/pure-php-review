@@ -16,8 +16,6 @@ class Router
         $method = $_SERVER['REQUEST_METHOD'];
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-        echo "<pre>DEBUG:\nMETHOD: $method\nPATH: $path\n</pre>";
-
         $action = self::$routes[$method][$path] ?? null;
 
         if ($action === null) {
