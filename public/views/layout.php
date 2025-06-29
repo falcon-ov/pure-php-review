@@ -1,31 +1,48 @@
+<?php
+// layout.php
+?>
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP + Bootstrap + Vue.js (CDN)</title>
-    <!-- Bootstrap CSS через CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/custom.css">
+    <title>Управление задачами</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.4.31/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body { padding-top: 70px; }
+        footer { margin-top: 50px; padding: 20px 0; background-color: #f8f9fa; }
+    </style>
 </head>
-
 <body>
-    <div id="app" class="container mt-5">
-        <h1>{{ message }}</h1>
-        <p>Данные из PHP: {{ phpData }}</p>
-        <button class="btn btn-primary" @click="changeMessage">Изменить текст</button>
-        <button class="btn btn-secondary" @click="fetchData">Загрузить данные</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Task Manager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/tasks">Задачи</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tasks/create">Создать задачу</a>
+                </li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <!-- Vue.js через CDN -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <!-- Bootstrap JS через CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        window.phpData = <?php echo json_encode(['phpData' => 'Привет от PHP!'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>;
-    </script>
-    <script src="/js/app.js"></script>
+<main class="container mt-4">
+    <?php echo $content ?? ''; ?>
+</main>
+
+<footer class="text-center">
+    <div class="container">
+        <p>© <?php echo date('Y'); ?> Task Manager. Все права защищены.</p>
+    </div>
+</footer>
 </body>
-
 </html>

@@ -8,9 +8,9 @@ class Database
     public static function getConnection()
     {
         try {
-            $pdo = new PDO("sqlite:../database.db");
+            $pdo = new PDO("sqlite:".__DIR__."/database.db");
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Успешное подключение";
+//            echo "Успешное подключение";
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

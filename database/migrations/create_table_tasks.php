@@ -1,7 +1,10 @@
 <?php
-require_once "../config/Database.php";
-$db = new Database();
-$pdo = $db->getConnection();
+
+require_once __DIR__."/../Database.php";
+
+use Database\Database;
+
+$pdo = Database::getConnection();
 
 
 $pdo->exec("

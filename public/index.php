@@ -4,13 +4,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Database\Database;
 use App\Models\Task;
-use App\Controllers\TaskController;
 use Core\Router;
 
-$taskModel = new Task(Database::getConnection());
-$controller = new TaskController($taskModel);
+// Инициализация PDO через класс Database
+Task::setConnection(Database::getConnection());
 
 require __DIR__ . '/../routes/web.php';
 
-// обрабатываем запрос
+// Обрабатываем запрос
 Router::dispatch();
